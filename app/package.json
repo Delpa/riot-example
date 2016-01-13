@@ -1,0 +1,28 @@
+{
+  "name": "riotexample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build-vendor": "browserify --require riot --outfile build/vendor.js",
+    "watch-js": "watchify --external riot src/app.js --outfile build/script.js --poll --debug --verbose",
+    "test": "browserify src/app.js --outfile build/test.js",
+    "sync": "browser-sync start --port 3000 --ui-port 3001 --files 'build/js/script.js, *.html' "
+  },
+  "browserify": {
+    "transform": [
+        [ "riotify"]
+    ]
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-preset-es2015": "^6.3.13",
+    "babelify": "^7.2.0",
+    "browser-sync": "^2.11.0",
+    "browserify": "^12.0.1",
+    "riot": "^2.3.13",
+    "riotify": "^0.1.2",
+    "watchify": "^3.6.1"
+  }
+}
